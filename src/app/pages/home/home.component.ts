@@ -16,6 +16,10 @@ export class HomeComponent implements OnInit {
   constructor(private yts: YoutubeService) {}
 
   ngOnInit(): void {
+    this.loadVideos();
+  }
+
+  public loadVideos(): void {
     this.yts.getVideos()
       .subscribe((res) => {
         // this.videos = this.videos.concat(res);
