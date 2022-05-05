@@ -1,2 +1,15 @@
 <h2 class="mt-3">Youtube Videos</h2>
 <hr>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let video of videos">
+        <app-card [video]="video"></app-card>
+    </div>
+</div>
+
+<div class="row mt-5 mb-5 text-center">
+    <div class="col">
+        <button class="btn btn-primary btn-lg">
+            Cargar próximos vídeos
+        </button>
+    </div>
+</div>

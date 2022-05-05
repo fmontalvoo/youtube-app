@@ -1,0 +1,23 @@
+<div class="card">
+    <img [src]="video.thumbnails.high.url" class="card-img-top" [alt]="video.title">
+    <div class="card-body">
+        <h5 class="card-title">{{video.title}}</h5>
+        <p class="card-text">
+            <strong>Author: </strong>{{video.channelTitle}}
+            <br>
+            <strong>Fecha publicación: </strong>{{video.publishedAt | date}}
+        </p>
+        <p class="card-text" *ngIf="video.description; let desc">
+            {{
+            (desc.length > 50)
+            ? (desc | slice:0:50) + '...'
+            : (desc)
+            }}
+        </p>
+        <div class="text-center">
+            <button class="btn btn-outline-primary">
+                Ver vídeo
+            </button>
+        </div>
+    </div>
+</div>

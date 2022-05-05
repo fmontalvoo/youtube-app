@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
+import { Video } from "src/app/models/youtube.models";
+
 import { YoutubeService } from "src/app/services/youtube.service";
 
 @Component({
@@ -8,12 +10,17 @@ import { YoutubeService } from "src/app/services/youtube.service";
   styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit {
+  public videos: Video[] = [];
+  // public videos: Array<Video> = [];
+
   constructor(private yts: YoutubeService) {}
 
   ngOnInit(): void {
     this.yts.getVideos()
       .subscribe((res) => {
-        console.log(res);
+        // this.videos = this.videos.concat(res);
+        this.videos.push(...res);
+        console.log(this.videos);
       });
   }
 }
